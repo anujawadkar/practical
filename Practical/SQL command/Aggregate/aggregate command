@@ -1,0 +1,90 @@
+mysql> create table product(
+    -> id int primary key,
+    -> p_name varchar(20),
+    -> company varchar(20),
+    -> rate int,
+    -> cost int
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc product;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | NO   | PRI | NULL    |       |
+| p_name  | varchar(20) | YES  |     | NULL    |       |
+| company | varchar(20) | YES  |     | NULL    |       |
+| rate    | int(11)     | YES  |     | NULL    |       |
+| cost    | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> insert into product value(1,'maggie','nesale',20,40);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into product value(2,'bourboun','nesale',40,80);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from product;
++----+----------+---------+------+------+
+| id | p_name   | company | rate | cost |
++----+----------+---------+------+------+
+|  1 | maggie   | nesale  |   20 |   40 |
+|  2 | bourboun | nesale  |   40 |   80 |
++----+----------+---------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> insert into product value(3,'jimjam','nesale',30,50);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from product;
++----+----------+---------+------+------+
+| id | p_name   | company | rate | cost |
++----+----------+---------+------+------+
+|  1 | maggie   | nesale  |   20 |   40 |
+|  2 | bourboun | nesale  |   40 |   80 |
+|  3 | jimjam   | nesale  |   30 |   50 |
++----+----------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql>  select count(*) from product;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.03 sec)
+
+mysql> select sum(rate) from product;
++-----------+
+| sum(rate) |
++-----------+
+|        90 |
++-----------+
+1 row in set (0.01 sec)
+
+mysql> select avg(cost) from product;
++-----------+
+| avg(cost) |
++-----------+
+|   56.6667 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select max(cost) from product;
++-----------+
+| max(cost) |
++-----------+
+|        80 |
++-----------+
+1 row in set (0.02 sec)
+
+mysql> select min(cost) from product;
++-----------+
+| min(cost) |
++-----------+
+|        40 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql>
